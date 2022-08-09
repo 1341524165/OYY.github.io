@@ -81,41 +81,41 @@ const config = {
         style: 'light',
         links: [
           {
-            title: 'Docs',
+            title: '寻址',
             items: [
               {
-                label: 'Tutorial',
+                label: '文档',
                 to: '/docs/intro',
               },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
+                label: '博客',
                 to: '/blog',
               },
+            ],
+          },
+          {
+            title: 'Cancan word?',
+            items: [
+              {
+                label: 'Bilibili',
+                href: 'https://space.bilibili.com/678805690?spm_id_from=333.1007.0.0',
+              },
+              {
+                label: 'Tiktok',
+                href: 'https://www.douyin.com/user/MS4wLjABAAAA5Et9C0ibEj8klfJ5aMzsjqLtz2GbiIMvPJJhovVYiVg',
+              },
+            ],
+          },
+          {
+            title: '国际接轨',
+            items: [
               {
                 label: 'GitHub',
                 href: 'https://github.com/1341524165',
+              },
+              {
+                label: 'Instagram',
+                href: 'https://www.instagram.com/fengyuanjunn/',
               },
               {
                 html: `<img src="https://tva1.sinaimg.cn/large/b447be47gy1h4xemfoqbrj205q04x74d.jpg" alt="eb0fff0a382103533aa063be3e9d0c1" width="206" data-width="206" data-height="177">`,
