@@ -1,0 +1,54 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #6c0094;
+  --ifm-color-primary-dark: #610085;
+  --ifm-color-primary-darker: #5c007e;
+  --ifm-color-primary-darkest: #4c0068;
+  --ifm-color-primary-light: #7700a3;
+  --ifm-color-primary-lighter: #7c00aa;
+  --ifm-color-primary-lightest: #8c00c0;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #78f7de;
+  --ifm-color-primary-dark: #55f5d6;
+  --ifm-color-primary-darker: #44f4d1;
+  --ifm-color-primary-darkest: #10f1c5;
+  --ifm-color-primary-light: #9bf9e6;
+  --ifm-color-primary-lighter: #acfaeb;
+  --ifm-color-primary-lightest: #e0fdf7;
+}
+
+.footer__title {
+  color: var(--ifm-color-primary-light);
+}
+
+.pagination-nav__link {
+  border: 3px solid var(--ifm-color-emphasis-300);
+  transition: all 1s ease-in-out;
+}
+
+.pagination-nav__link:hover {
+  background-color: rgb(195, 142, 244);
+}
+
+.pagination-nav__sublabel {
+  font-size: var(--ifm-h3-font-size);
+  font-weight: 1000;
+  font-family: KaiTi;
+}
+
+.markdown > h2 {
+  color: var(--ifm-color-primary-light);
+}
+
+pre code {
+  border: 2px solid var(--ifm-color-primary-light);
+}
