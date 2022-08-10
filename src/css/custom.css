@@ -52,3 +52,8 @@
 pre code {
   border: 2px solid var(--ifm-color-primary-light);
 }
+
+code {
+  background-color: rgba(46, 128, 236, 0.08);
+  border: 0.1rem dotted var(--ifm-color-primary-light);
+}
