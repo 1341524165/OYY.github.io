@@ -57,3 +57,12 @@ code {
   background-color: rgba(46, 128, 236, 0.08);
   border: 0.1rem dotted var(--ifm-color-primary-light);
 }
+
+.button {
+  background-color: white;
+  transition: all 0.6s ease-in-out;
+}
+
+.button:hover {
+  background-color: rgb(114, 205, 247);
+}
