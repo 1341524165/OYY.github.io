@@ -45,6 +45,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          blogSidebarTitle: 'All posts',
+          blogSidebarCount: 'ALL',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -52,7 +54,27 @@ const config = {
       }),
     ],
   ],
-  plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
+  plugins: [require.resolve("@cmfcmf/docusaurus-search-local"),
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        /**
+         * 多实例插件必填。
+         */
+        id: 'second-blog',
+        /**
+         * 你的网站上博客的 URL 路由。
+         * *请务必不要*添加末尾斜杠。
+         */
+        routeBasePath: 'my-second-blog',
+        /**
+         * 相对于站点目录的文件系统路径。
+         */
+        path: './my-second-blog',
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -69,7 +91,7 @@ const config = {
             position: 'left',
             label: '文档',
           },
-          { to: '/blog', label: '博客', position: 'left' },
+          { to: '/blog/first-blog', label: '博客', position: 'left' },
           {
             href: 'https://github.com/1341524165?tab=repositories',
             label: 'GitHub',
