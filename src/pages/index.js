@@ -14,16 +14,14 @@ function HomepageHeader() {
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            MOVE ON!
-          </Link>
-        </div>
-        <div className={clsx('imgbox', styles.imgbox)}>
-          <img src="https://tvax3.sinaimg.cn/large/b447be47gy1h4xf9rttslj20g302cwfy.jpg" alt="未标题-1" width="400" data-width="400" data-height="87"/>
-        </div>
+          <a href='/docs/intro' >
+            <button>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>  Move On  
+            </button>
+          </a>
       </div>
     </header>
   );

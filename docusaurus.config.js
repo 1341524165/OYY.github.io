@@ -103,7 +103,7 @@ const config = {
         style: 'light',
         links: [
           {
-            title: '寻址',
+            title: '页内寻址',
             items: [
               {
                 label: '文档',
@@ -148,8 +148,9 @@ const config = {
         copyright: `@OYY  冯源濬`,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['java'],
       },
     }),
 };

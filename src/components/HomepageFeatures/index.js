@@ -4,7 +4,7 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Picture and text have nothing to do',
+    title: '为了美观',
     Svg: require('@site/static/img/com.svg').default,
     description: (
       <>
@@ -13,7 +13,7 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Strange man',
+    title: '毫无作用',
     Svg: require('@site/static/img/data.svg').default,
     description: (
       <>
@@ -23,7 +23,7 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Interesting blog',
+    title: '三个玩具',
     Svg: require('@site/static/img/save.svg').default,
     description: (
       <>
