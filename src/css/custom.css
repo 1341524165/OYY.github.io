@@ -17,13 +17,14 @@
   --ifm-color-reverse: #10f1c5;
   --ifm-color-baw: black;
   --ifm-color-reverse-baw: white;
-  --ifm-navbar-background-color: hsla(0, 0%, 100%, .264);
-  --ifm-hero-background-color:rgba(177, 177, 177, .264);
+  --ifm-navbar-background-color: hsla(0, 0%, 100%, 0.264);
+  --ifm-hero-background-color: rgba(177, 177, 177, 0.264);
+  --ifm-botton1-background-color: #2a2d5c;
   --ifm-button2-text-stroke-color: rgba(0, 0, 0, 0.6);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #78f7de;
   --ifm-color-primary-dark: #55f5d6;
   --ifm-color-primary-darker: #44f4d1;
@@ -35,8 +36,9 @@
   --ifm-color-reverse: #d053fe;
   --ifm-color-baw: white;
   --ifm-color-reverse-baw: black;
-  --ifm-navbar-background-color: rgba(0, 0, 0, .264);
-  --ifm-hero-background-color:rgba(71, 71, 71, .264);
+  --ifm-navbar-background-color: rgba(0, 0, 0, 0.264);
+  --ifm-hero-background-color: rgba(71, 71, 71, 0.264);
+  --ifm-botton1-background-color: #e4e4e4;
   --ifm-button2-text-stroke-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -51,7 +53,7 @@ strong {
 
 .pagination-nav__link {
   border: 3px solid var(--ifm-color-emphasis-300);
-  transition: all .6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .pagination-nav__link:hover {
@@ -65,25 +67,25 @@ strong {
   font-family: KaiTi;
 }
 
-.markdown>h2 {
+.markdown > h2 {
   color: var(--ifm-color-primary-light);
   font-size: 2.1em;
   border-bottom: 1px solid var(--ifm-color-reverse);
   padding-left: 1rem;
 }
 
-.markdown>h3 {
+.markdown > h3 {
   border-left: 7px solid var(--ifm-color-reverse);
   font-size: 1.8em;
   padding-left: 1rem;
-  margin-top: calc(var(--ifm-h4-vertical-rhythm-top)*var(--ifm-leading));
+  margin-top: calc(var(--ifm-h4-vertical-rhythm-top) * var(--ifm-leading));
 }
 
-.markdown>h4 {
+.markdown > h4 {
   border-left: 7px solid var(--ifm-color-primary-lightest);
   font-size: 1.5em;
   padding-left: 3rem;
-  margin-top: calc(var(--ifm-h4-vertical-rhythm-top)*var(--ifm-leading));
+  margin-top: calc(var(--ifm-h4-vertical-rhythm-top) * var(--ifm-leading));
 }
 
 pre code {
@@ -103,7 +105,7 @@ code {
   padding: 1em 1.8em;
   outline: none;
   border: 1px solid #303030;
-  background: #212121;
+  background: var(--ifm-botton1-background-color);
   color: #ae00ff;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -187,55 +189,127 @@ code {
   transition: 0.1s;
 }
 
-.button1:active span:nth-child(1) span:nth-child(2) span:nth-child(2) span:nth-child(2) {
+.button1:active
+  span:nth-child(1)
+  span:nth-child(2)
+  span:nth-child(2)
+  span:nth-child(2) {
   transition: none;
   transition-delay: none;
 }
 
-
-/* From uiverse.io by @satyamchaudharydev */
-/* === removing default button style ===*/
+/* From uiverse.io */
 .button2 {
-  margin: 0;
-  background: transparent;
-  padding: 0;
-  border: none;
-}
-
-/* button styling */
-.button2 {
-  --border-right: 6px;
-  --text-stroke-color: var(--ifm-button2-text-stroke-color);
-  --animation-color: var(--ifm-color-primary-light);
-  --fs-size: 2em;
-  letter-spacing: 3px;
-  text-decoration: none;
-  font-size: var(--fs-size);
-  font-family: "Arial";
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+  border: 0.25em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+    0 0 4em 1em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
   position: relative;
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--text-stroke-color);
+  transition: all 0.3s;
+  margin-left: 130px;
 }
 
-/* this is the text, when you hover on button */
-.hover-text {
+.button2:hover {
+  cursor: pointer;
+}
+
+.button2::after {
+  pointer-events: none;
+  content: "";
   position: absolute;
-  box-sizing: border-box;
-  content: attr(data-text);
-  color: var(--animation-color);
-  width: 0%;
-  inset: 0;
-  border-right: var(--border-right) solid var(--animation-color);
-  overflow: hidden;
-  transition: 0.5s;
-  -webkit-text-stroke: 1px var(--animation-color);
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: 0.7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
 }
 
-/* hover */
-.button2:hover .hover-text {
-  width: 100%;
-  filter: drop-shadow(0 0 23px var(--animation-color))
+.button2:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+    0 0 4em 2em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+}
+
+.button2:active {
+  box-shadow: 0 0 0.6em 0.25em var(--glow-color),
+    0 0 2.5em 2em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color);
+}
+
+/* 字体 */
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+.container_indextitle {
+  display: flex;
+  /*   border:1px solid red; */
+  height: 100%;
+  align-items: center;
+  margin-top: -50px;
+}
+
+.svg_indextitle {
+  display: block;
+  font: 10.5em "Montserrat";
+  width: 960px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 6% 29%;
+  stroke-width: 5px;
+  stroke-dashoffset: 0%;
+  animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1) {
+  stroke: #4d163d;
+  animation-delay: -1;
+}
+
+.text-copy:nth-child(2) {
+  stroke: #8a029c;
+  animation-delay: -2s;
+}
+
+.text-copy:nth-child(3) {
+  stroke: #ce00d9;
+  animation-delay: -3s;
+}
+
+.text-copy:nth-child(4) {
+  stroke: #ff00ff;
+  animation-delay: -4s;
+}
+
+.text-copy:nth-child(5) {
+  stroke: #0077ff;
+  animation-delay: -5s;
+}
+
+@keyframes stroke-offset {
+  100% {
+    stroke-dashoffset: -35%;
+  }
 }
 
 a {
@@ -278,4 +352,8 @@ a:hover {
 
 .features_src-components-HomepageFeatures-styles-module {
   background-color: var(--ifm-color-reverse-baw);
+}
+
+.footer__link-item {
+  color: var(--ifm-color-a);
 }

@@ -9,12 +9,12 @@ const FeatureList = [
     description: <>&nbsp;大大生活&nbsp;</>,
   },
   {
-    title: "/docs/Game/Game-exp",
+    title: "//docs/Study/Build%20up%20a%20Blog",
     Svg: require("@site/static/img/data.svg").default,
     description: <>&nbsp;中中学习&nbsp;</>,
   },
   {
-    title: "/docs/Study/Build%20up%20a%20Blog",
+    title: "docs/Game/Game-exp",
     Svg: require("@site/static/img/save.svg").default,
     description: <>&nbsp;小小网瘾&nbsp;</>,
   },
@@ -27,12 +27,7 @@ function Feature({ Svg, title, description }) {
         {/* <div className="text--center">
           <Svg className={styles.featureSvg} role="img" />
         </div> */}
-        <button data-text="Awesome" className="button2">
-          <span class="actual-text">&nbsp;{description}&nbsp;</span>
-          <span class="hover-text" aria-hidden="true">
-            {description}
-          </span>
-        </button>
+        <button className="button2">{description}</button>
       </a>
     </div>
   );

@@ -689,8 +689,8 @@ export default function ThreeJSAnimationShader({}: AnimationProps) {
       meshes.forEach((mesh) => {
         mesh.material.uniforms.u_time.value =
           3 * clockRef.current.getElapsedTime() * TIME_DILATION;
-        mesh.position.x = 8 + scrollRef.current / -28;
-        mesh.position.y = 10 + scrollRef.current / 40;
+        // mesh.position.x = 8 + scrollRef.current / -28;
+        mesh.position.y = 10 + scrollRef.current / 46;
         mesh.rotation.x = scrollRef.current / 2000;
       });
 
