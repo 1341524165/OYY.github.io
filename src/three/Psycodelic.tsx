@@ -4,177 +4,175 @@ import * as THREE from "three";
 // @ts-ignore
 import { BlurPass, EffectComposer, RenderPass } from "postprocessing";
 
-const WHITE = new THREE.Color(0xFFFFFF),
-    GREY = new THREE.Color(0xCCCCCC),
-    RED = new THREE.Color(0xFF0000),
-    YELLOW = new THREE.Color(0xFFFF00),
-    BLUE = new THREE.Color(0x0000FF),
-    CYAN = new THREE.Color(0x00FFFF),
-    LIGHT_GREEN = new THREE.Color(0x70C4CE),
-    ORANGE = new THREE.Color(0xf66023),
-    PURPLE = new THREE.Color(0x590D82),
-    MAGENTA = new THREE.Color(0xff00ff),
-    PINK = new THREE.Color(0xCE70A5);
+const WHITE = new THREE.Color(0xffffff),
+  GREY = new THREE.Color(0xcccccc),
+  RED = new THREE.Color(0xff0000),
+  YELLOW = new THREE.Color(0xffff00),
+  BLUE = new THREE.Color(0x0000ff),
+  CYAN = new THREE.Color(0x00ffff),
+  LIGHT_GREEN = new THREE.Color(0x70c4ce),
+  ORANGE = new THREE.Color(0xf66023),
+  PURPLE = new THREE.Color(0x590d82),
+  MAGENTA = new THREE.Color(0xff00ff),
+  PINK = new THREE.Color(0xce70a5);
 
 const CAMERA_FACTOR = 40;
 // const CAMERA_FACTOR = 180;
 const TIME_DILATION = 1 / 2;
-const BRIGHTNESS = .8;
-
+const BRIGHTNESS = 0.8;
 
 type SceneState = {
-    renderer: THREE.WebGLRenderer,
-    camera: THREE.OrthographicCamera,
-    scene: THREE.Scene,
-    geometry: THREE.BufferGeometry,
-    material: THREE.MeshStandardMaterial,
-    mesh: THREE.Mesh
-}
+  renderer: THREE.WebGLRenderer;
+  camera: THREE.OrthographicCamera;
+  scene: THREE.Scene;
+  geometry: THREE.BufferGeometry;
+  material: THREE.MeshStandardMaterial;
+  mesh: THREE.Mesh;
+};
 
 export function ThreeJSAnimationShader() {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const sceneStateRef = useRef<SceneState | null>(null);
 
-    const canvasRef = useRef<HTMLCanvasElement | null>(null);
-    const sceneStateRef = useRef<SceneState | null>(null);
+  function initScene(
+    ref: HTMLCanvasElement,
+    width: number,
+    height: number
+  ): SceneState {
+    const renderer = new THREE.WebGLRenderer({
+      // antialias: true,
+      // alpha: true,
+      canvas: ref,
+    });
 
-    function initScene(ref: HTMLCanvasElement, width: number, height: number): SceneState {
+    renderer.setClearColor(0xffffff);
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(1);
 
-        const renderer = new THREE.WebGLRenderer({
-            // antialias: true,
-            // alpha: true,
-            canvas: ref
-        });
+    const scene = new THREE.Scene();
 
-        renderer.setClearColor(0xffffff);
-        renderer.setSize(width, height);
-        renderer.setPixelRatio(1);
+    const geometry = new THREE.SphereGeometry(
+      15,
+      60,
+      60
+      // 0,
+      // Math.PI,
+      // Math.PI / 4,
+      // Math.PI / 2
+    );
 
-        const scene = new THREE.Scene();
+    // let geometry = new THREE.DodecahedronGeometry(10, 10);
 
-        const geometry = new THREE.SphereBufferGeometry(15,
-            60,
-            60,
-            // 0,
-            // Math.PI,
-            // Math.PI / 4,
-            // Math.PI / 2
-        );
+    const material = new THREE.MeshStandardMaterial();
 
-        // let geometry = new THREE.DodecahedronGeometry(10, 10);
+    material.userData.delta = { value: 0 };
+    material.userData.brightness = { value: BRIGHTNESS };
+    // material.side = THREE.DoubleSide;
 
-        const material = new THREE.MeshStandardMaterial();
+    material.onBeforeCompile = function (shader) {
+      shader.uniforms.delta = material.userData.delta;
+      shader.uniforms.brightness = material.userData.brightness;
+      // shader.fragmentShader = "uniform float delta;\n" + shader.fragmentShader;
+      shader.fragmentShader = buildFragmentShader();
+      shader.vertexShader = buildVertexShader();
+    };
 
-        material.userData.delta = { value: 0 };
-        material.userData.brightness = { value: BRIGHTNESS };
-        // material.side = THREE.DoubleSide;
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
 
-        material.onBeforeCompile = function(shader) {
-            shader.uniforms.delta = material.userData.delta;
-            shader.uniforms.brightness = material.userData.brightness;
-            // shader.fragmentShader = "uniform float delta;\n" + shader.fragmentShader;
-            shader.fragmentShader = buildFragmentShader();
-            shader.vertexShader = buildVertexShader();
-        };
+    // BG plane
+    const planeGeometry = new THREE.PlaneGeometry(500, 500);
+    const plane = new THREE.Mesh(planeGeometry, material);
+    plane.position.z = -500;
+    scene.add(plane);
 
-        const mesh = new THREE.Mesh(geometry, material);
-        scene.add(mesh);
+    const left = width / -CAMERA_FACTOR;
+    const right = width / CAMERA_FACTOR;
+    const top = height / CAMERA_FACTOR;
+    const bottom = height / -CAMERA_FACTOR;
+    const near = 1;
+    const far = 1000;
+    const camera = new THREE.OrthographicCamera(
+      left,
+      right,
+      top,
+      bottom,
+      near,
+      far
+    );
+    camera.position.z = 500;
+    camera.position.y = -13;
+    camera.position.x = 2;
 
-        // BG plane
-        const planeGeometry = new THREE.PlaneGeometry(500, 500);
-        const plane = new THREE.Mesh(planeGeometry, material);
-        plane.position.z = -500;
-        scene.add(plane);
+    return {
+      renderer,
+      camera,
+      scene,
+      geometry,
+      material,
+      mesh,
+    };
+  }
 
-        const left = width / -CAMERA_FACTOR ;
-        const right = width / CAMERA_FACTOR;
-        const top = height / CAMERA_FACTOR;
-        const bottom = height / -CAMERA_FACTOR;
-        const near = 1;
-        const far = 1000;
-        const camera = new THREE.OrthographicCamera(left, right, top, bottom, near, far);
-        camera.position.z = 500;
-        camera.position.y = -13;
-        camera.position.x = 2;
+  function setSize(state: SceneState, width: number, height: number) {
+    state.renderer.setSize(width, height);
+    state.camera.left = width / -CAMERA_FACTOR;
+    state.camera.right = width / CAMERA_FACTOR;
+    state.camera.top = height / CAMERA_FACTOR;
+    state.camera.bottom = height / -CAMERA_FACTOR;
+    state.camera.updateProjectionMatrix();
+  }
 
-        return {
-            renderer,
-            camera,
-            scene,
-            geometry,
-            material,
-            mesh
-        };
+  useEffect(() => {
+    if (!canvasRef.current) return;
+
+    const width = canvasRef.current.offsetWidth,
+      height = canvasRef.current.offsetHeight;
+
+    const sceneState = initScene(canvasRef.current, width, height);
+    sceneStateRef.current = sceneState;
+    const { renderer, camera, scene, material } = sceneState;
+
+    const clock = new THREE.Clock();
+
+    //RENDER LOOP
+    render();
+
+    function render() {
+      // const delta = clock.getDelta();
+      // mesh.rotation.y += delta * 0.05 * (1) % Math.PI;
+      // mesh.rotation.x += delta * 0.05 * (-1) % Math.PI;
+      material.userData.delta.value = clock.getElapsedTime() * TIME_DILATION;
+      material.userData.brightness.value = BRIGHTNESS;
+      renderer.render(scene, camera);
+      requestAnimationFrame(render);
     }
 
-    function setSize(state: SceneState, width: number, height: number) {
-        state.renderer.setSize(width, height);
-        state.camera.left = width / -CAMERA_FACTOR;
-        state.camera.right = width / CAMERA_FACTOR;
-        state.camera.top = height / CAMERA_FACTOR;
-        state.camera.bottom = height / -CAMERA_FACTOR;
-        state.camera.updateProjectionMatrix();
+    return () => {
+      // Callback to cleanup three js, cancel animationFrame, etc
+    };
+  }, [canvasRef.current]);
+
+  useEffect(() => {
+    function handleResize() {
+      if (sceneStateRef.current && canvasRef.current) {
+        console.log("resizing");
+        const width = window.innerWidth,
+          height = window.innerHeight;
+        canvasRef.current.width = width;
+        setSize(sceneStateRef.current, width, height);
+      }
     }
 
-    useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [window.innerHeight, window.innerWidth]);
 
-        if (!canvasRef.current)
-            return;
-
-        const width = canvasRef.current.offsetWidth,
-            height = canvasRef.current.offsetHeight;
-
-        const sceneState = initScene(canvasRef.current, width, height);
-        sceneStateRef.current = sceneState;
-        const {
-            renderer,
-            camera,
-            scene,
-            material
-        } = sceneState;
-
-        const clock = new THREE.Clock();
-
-        //RENDER LOOP
-        render();
-
-        function render() {
-            // const delta = clock.getDelta();
-            // mesh.rotation.y += delta * 0.05 * (1) % Math.PI;
-            // mesh.rotation.x += delta * 0.05 * (-1) % Math.PI;
-            material.userData.delta.value = clock.getElapsedTime() * TIME_DILATION;
-            material.userData.brightness.value = BRIGHTNESS;
-            renderer.render(scene, camera);
-            requestAnimationFrame(render);
-        }
-
-        return () => {
-            // Callback to cleanup three js, cancel animationFrame, etc
-        };
-    }, [canvasRef.current]);
-
-    useEffect(() => {
-        function handleResize() {
-            if (sceneStateRef.current && canvasRef.current) {
-                console.log("resizing");
-                const width = window.innerWidth,
-                    height = window.innerHeight;
-                canvasRef.current.width= width;
-                setSize(sceneStateRef.current, width, height);
-            }
-        }
-
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, [window.innerHeight, window.innerWidth]);
-
-    return <canvas
-        className={"h-screen w-screen"}
-        ref={canvasRef}
-    />;
-
+  return <canvas className={"h-screen w-screen"} ref={canvasRef} />;
 }
 
 function buildVertexShader() {
-    return `
+  return `
     uniform float delta;
 
     varying vec2 vUv;
@@ -296,8 +294,7 @@ function buildVertexShader() {
 
 // https://zz85.github.io/glsl-optimizer/
 function buildFragmentShaderOptimized() {
-
-    return `uniform highp float delta;
+  return `uniform highp float delta;
 uniform highp float brightness;
 varying highp vec3 vNormal;
 varying highp vec3 vPosition;
@@ -342,8 +339,7 @@ void main ()
 }
 
 function buildFragmentShader() {
-
-    return `
+  return `
 			uniform float delta;
 			uniform float brightness;
 
@@ -379,7 +375,4 @@ function buildFragmentShader() {
 
 			}
     `;
-
-
 }
-
