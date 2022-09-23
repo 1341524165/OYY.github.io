@@ -115,6 +115,7 @@ code {
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
+  margin-left: 140px;
 }
 
 .button1:hover {
@@ -218,7 +219,6 @@ code {
   text-shadow: 0 0 0.5em var(--glow-color);
   position: relative;
   transition: all 0.3s;
-  margin-left: 130px;
 }
 
 .button2:hover {

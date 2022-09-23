@@ -36,15 +36,7 @@ function HomepageHeader() {
             </g>
           </svg>
         </div>
-
-        <a href="/docs/intro">
-          <button className="button1">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span> Move On
-          </button>
-        </a>
+        <button className="button2">&nbsp;Move On&nbsp;</button>
       </div>
     </header>
   );
