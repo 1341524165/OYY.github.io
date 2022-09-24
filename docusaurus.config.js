@@ -158,9 +158,6 @@ const config = {
                 label: "Instagram",
                 href: "https://www.instagram.com/fengyuanjunn/",
               },
-              {
-                html: `<img src="https://tva1.sinaimg.cn/large/b447be47gy1h4xemfoqbrj205q04x74d.jpg" alt="eb0fff0a382103533aa063be3e9d0c1" width="206" data-width="206" data-height="177">`,
-              },
             ],
           },
         ],

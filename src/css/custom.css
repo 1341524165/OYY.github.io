@@ -58,11 +58,11 @@ strong {
 
 .pagination-nav__link:hover {
   background-color: #a1d8f71b;
-  box-shadow: 6px 6px 2px 1px rgb(0 170 255 / 74%);
+  box-shadow: 4px 4px 2px 1px var(--ifm-color-reverse);
 }
 
 .pagination-nav__sublabel {
-  font-size: var(--ifm-h3-font-size);
+  font-size: var(--ifm-h4-font-size);
   font-weight: 1000;
   font-family: KaiTi;
 }
@@ -204,7 +204,7 @@ code {
   --glow-color: rgb(217, 176, 255);
   --glow-spread-color: rgba(191, 123, 255, 0.781);
   --enhanced-glow-color: rgb(231, 206, 255);
-  --btn-color: rgb(100, 61, 136);
+  --btn-color: rgba(100, 61, 136, 0.659);
   border: 0.25em solid var(--glow-color);
   padding: 1em 3em;
   color: var(--glow-color);
@@ -219,6 +219,7 @@ code {
   text-shadow: 0 0 0.5em var(--glow-color);
   position: relative;
   transition: all 0.3s;
+  backdrop-filter: blur(20px);
 }
 
 .button2:hover {
@@ -297,12 +298,12 @@ code {
 }
 
 .text-copy:nth-child(4) {
-  stroke: #ff00ff;
+  stroke: #ff22ff;
   animation-delay: -4s;
 }
 
 .text-copy:nth-child(5) {
-  stroke: #0077ff;
+  stroke: #20a6ff;
   animation-delay: -5s;
 }
 
@@ -318,7 +319,7 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: #7ba6ec;
+  color: var(--ifm-color-reverse);
 }
 
 .table-of-contents__link {
@@ -348,17 +349,16 @@ a:hover {
   height: 100vh;
   width: 100%;
   background-color: var(--ifm-hero-background-color);
-}
-
-.features_src-components-HomepageFeatures-styles-module {
-  background-color: var(--ifm-color-reverse-baw);
-  display: table-cell;
-  /*垂直居中 */
-  vertical-align: middle;
-  /*水平居中*/
-  text-align: center;
+  overflow: visible !important;
 }
 
 .footer__link-item {
   color: var(--ifm-color-a);
+}
+
+.col--4 {
+  /* 水平居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -40,7 +40,10 @@ function Feature({ Svg, title, description }) {
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
+    <div
+      // style={{ backgroundColor: "var(--ifm-hero-background-color) !important" }}
+      className={styles.features}
+    >
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (
@@ -48,6 +51,6 @@ export default function HomepageFeatures() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
