@@ -82,7 +82,7 @@ strong {
 }
 
 .markdown > h4 {
-  border-left: 7px solid var(--ifm-color-primary-lightest);
+  border-left: 7px solid var(--ifm-color-primary-light);
   font-size: 1.5em;
   padding-left: 3rem;
   margin-top: calc(var(--ifm-h4-vertical-rhythm-top) * var(--ifm-leading));

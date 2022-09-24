@@ -4,12 +4,12 @@ import styles from "./styles.module.css";
 
 const FeatureList = [
   {
-    title: "/docs/Daily/D1",
+    title: "docs/Daily/D1",
     Svg: require("@site/static/img/com.svg").default,
     description: <>&nbsp;大大生活&nbsp;</>,
   },
   {
-    title: "//docs/Study/Build%20up%20a%20Blog",
+    title: "docs/Study/Build%20up%20a%20Blog",
     Svg: require("@site/static/img/data.svg").default,
     description: <>&nbsp;中中学习&nbsp;</>,
   },
