@@ -38,7 +38,7 @@
   --ifm-color-reverse-baw: black;
   --ifm-navbar-background-color: rgba(0, 0, 0, 0.264);
   --ifm-hero-background-color: rgba(71, 71, 71, 0.264);
-  --ifm-botton1-background-color: #e4e4e4;
+  --ifm-botton1-background-color: #262c6a;
   --ifm-button2-text-stroke-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -106,7 +106,7 @@ code {
   outline: none;
   border: 1px solid #303030;
   background: var(--ifm-botton1-background-color);
-  color: #ae00ff;
+  color: rgb(200, 141, 255);
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 15px;
@@ -115,7 +115,7 @@ code {
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
-  margin-left: 140px;
+  /* margin-left: 140px; */
 }
 
 .button1:hover {
@@ -352,6 +352,11 @@ a:hover {
 
 .features_src-components-HomepageFeatures-styles-module {
   background-color: var(--ifm-color-reverse-baw);
+  display: table-cell;
+  /*垂直居中 */
+  vertical-align: middle;
+  /*水平居中*/
+  text-align: center;
 }
 
 .footer__link-item {

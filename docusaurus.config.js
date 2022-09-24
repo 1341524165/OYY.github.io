@@ -96,7 +96,7 @@ const config = {
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
+    {
       navbar: {
         title: "OYY",
         logo: {
@@ -171,7 +171,10 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: ["java"],
       },
-    }),
+      colormode: {
+        defaultMode: "dark",
+      },
+    },
 };
 
 module.exports = config;
