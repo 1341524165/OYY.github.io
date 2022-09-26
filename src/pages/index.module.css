@@ -7,7 +7,7 @@
   margin-top: 40px;
 }
 
-.hero{
+.hero {
   background-color: rgba(255, 255, 255, 0) !important;
 }
 
@@ -20,7 +20,7 @@
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 0 !important;
   }
 }
 
@@ -30,7 +30,7 @@
   justify-content: center;
 }
 
-.Three{
+.Three {
   /* z-index: 100; */
   position: absolute;
   top: -100px;

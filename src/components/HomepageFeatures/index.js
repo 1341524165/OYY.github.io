@@ -28,7 +28,7 @@ function Feature({ Svg, title, description }) {
           <span></span>
           <span></span>
           <span></span>
-          <span></span> {description}
+          <span></span> &nbsp;{description}&nbsp;
         </button>
         {/* <div className="text--center">
           <Svg className={styles.featureSvg} role="img" />

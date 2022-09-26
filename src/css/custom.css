@@ -63,7 +63,7 @@ strong {
 
 .pagination-nav__sublabel {
   font-size: var(--ifm-h4-font-size);
-  font-weight: 1000;
+  font-weight: 400;
   font-family: KaiTi;
 }
 
@@ -318,7 +318,6 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
   color: var(--ifm-color-reverse);
 }
 
@@ -337,7 +336,7 @@ a:hover {
 
 .navbar-sidebar--show .navbar-sidebar,
 .navbar-sidebar--show .navbar-sidebar__backdrop {
-  height: 100vh !important;
+  height: 100vh;
 }
 
 .navbar {
@@ -356,9 +355,21 @@ a:hover {
   color: var(--ifm-color-a);
 }
 
+.footer__link-item:hover {
+  text-decoration: none;
+}
+
+.col {
+  padding: 0.7rem 1rem 0;
+}
+
 .col--4 {
   /* 水平居中 */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.navbar-sidebar__brand {
+  background-color: var(--ifm-color-reverse-baw);
 }
