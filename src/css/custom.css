@@ -373,3 +373,11 @@ a:hover {
 .navbar-sidebar__brand {
   background-color: var(--ifm-color-reverse-baw);
 }
+
+.menu__link {
+  color: var(--ifm-color-baw);
+}
+
+.menu__link:hover {
+  color: var(--ifm-color-reverse);
+}
