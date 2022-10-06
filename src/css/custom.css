@@ -22,6 +22,7 @@
   --ifm-hero-background-color: rgba(177, 177, 177, 0.264);
   --ifm-botton1-background-color: #2a2d5c;
   --ifm-button2-text-stroke-color: rgba(0, 0, 0, 0.6);
+  --ifm-color-secondary-contrast-background: rgb(239, 239, 239);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -88,6 +89,20 @@ strong {
   font-size: 1.5em;
   padding-left: 3rem;
   margin-top: calc(var(--ifm-h4-vertical-rhythm-top) * var(--ifm-leading));
+}
+
+.markdown > h5 {
+  border-left: 4px solid var(--ifm-color-primary-light);
+  border-bottom: 1px solid var(--ifm-color-primary-light);
+  font-size: 1.2em;
+  padding-left: 4rem;
+  margin-top: calc(var(--ifm-h4-vertical-rhythm-top) * var(--ifm-leading));
+}
+
+p {
+  font-size: 1.1em;
+  font-weight: bold;
+  font-family: KaiTi;
 }
 
 pre code {

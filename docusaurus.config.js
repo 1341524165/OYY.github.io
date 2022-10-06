@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "OYY Blog",
+  title: "OYY's Blog",
   tagline: "Me the man handsome so much",
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/",
@@ -170,6 +170,7 @@ const config = {
       },
       colormode: {
         defaultMode: "dark",
+        respectPrefersColorScheme: false,
       },
     },
 };
