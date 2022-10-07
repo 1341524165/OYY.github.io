@@ -96,7 +96,7 @@ const config = {
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    {
+    ({
       navbar: {
         title: "OYY",
         logo: {
@@ -164,15 +164,20 @@ const config = {
         copyright: `@OYY  冯源濬`,
       },
       prism: {
-        theme: darkCodeTheme,
+        theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ["java"],
       },
-      colormode: {
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 5,
+      },
+      colorMode: {
         defaultMode: "dark",
+        disableSwitch: false,
         respectPrefersColorScheme: false,
       },
-    },
+    }),
 };
 
 module.exports = config;

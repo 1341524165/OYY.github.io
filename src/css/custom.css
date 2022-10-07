@@ -66,8 +66,16 @@ strong {
 
 .pagination-nav__sublabel {
   font-size: var(--ifm-h4-font-size);
-  font-weight: 400;
+  font-weight: 600;
   font-family: KaiTi;
+}
+
+.card {
+  transition: all 0.6s ease-in-out !important;
+}
+
+.card:hover {
+  box-shadow: 2px 2px 1px 1px var(--ifm-color-reverse) !important;
 }
 
 .markdown > h2 {
@@ -81,14 +89,14 @@ strong {
   border-left: 7px solid var(--ifm-color-reverse);
   font-size: 1.8em;
   padding-left: 1rem;
-  margin-top: calc(var(--ifm-h4-vertical-rhythm-top) * var(--ifm-leading));
+  margin-top: calc(var(--ifm-h1-vertical-rhythm-top) * var(--ifm-leading));
 }
 
 .markdown > h4 {
   border-left: 7px solid var(--ifm-color-primary-light);
   font-size: 1.5em;
   padding-left: 3rem;
-  margin-top: calc(var(--ifm-h4-vertical-rhythm-top) * var(--ifm-leading));
+  margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
 }
 
 .markdown > h5 {
@@ -96,7 +104,7 @@ strong {
   border-bottom: 1px solid var(--ifm-color-primary-light);
   font-size: 1.2em;
   padding-left: 4rem;
-  margin-top: calc(var(--ifm-h4-vertical-rhythm-top) * var(--ifm-leading));
+  margin-top: calc(var(--ifm-h3-vertical-rhythm-top) * var(--ifm-leading));
 }
 
 p {
