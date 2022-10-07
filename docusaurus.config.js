@@ -168,14 +168,14 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: ["java"],
       },
-      tableOfContents: {
-        minHeadingLevel: 2,
-        maxHeadingLevel: 5,
-      },
       colorMode: {
         defaultMode: "dark",
         disableSwitch: false,
         respectPrefersColorScheme: false,
+      },
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 5,
       },
     }),
 };
