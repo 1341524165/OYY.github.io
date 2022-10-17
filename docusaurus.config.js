@@ -48,6 +48,7 @@ const config = {
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
           blogSidebarTitle: "All posts",
           blogSidebarCount: "ALL",
+          sortPosts: "ascending",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
