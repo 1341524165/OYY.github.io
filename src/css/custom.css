@@ -107,6 +107,10 @@ strong {
   margin-top: calc(var(--ifm-h3-vertical-rhythm-top) * var(--ifm-leading));
 }
 
+hr {
+  height: 4px;
+}
+
 p {
   font-size: 1.1em;
 }
