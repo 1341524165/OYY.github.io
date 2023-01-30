@@ -102,7 +102,7 @@ const config = {
         title: "OYY",
         logo: {
           alt: "My Site Logo",
-          src: "https://tva4.sinaimg.cn/large/b447be47ly1h4uqtlstu7j20ht0hcwgh.jpg",
+          src: "https://jcqn.oss-cn-beijing.aliyuncs.com/img_blog/site%20logo.jpg",
         },
         items: [
           {
