@@ -4,17 +4,17 @@ import styles from "./styles.module.css";
 
 const FeatureList = [
   {
-    title: "docs/Daily/D1",
+    title: "docs/category/daily",
     Svg: require("@site/static/img/com.svg").default,
     description: <>&nbsp;大大生活&nbsp;</>,
   },
   {
-    title: "docs/Study/Build%20up%20a%20Blog",
+    title: "docs/category/study",
     Svg: require("@site/static/img/data.svg").default,
     description: <>&nbsp;中中学习&nbsp;</>,
   },
   {
-    title: "docs/Game/Game-exp",
+    title: "docs/category/game",
     Svg: require("@site/static/img/save.svg").default,
     description: <>&nbsp;小小网瘾&nbsp;</>,
   },
