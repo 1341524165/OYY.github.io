@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
@@ -84,7 +84,7 @@ const config = {
         id: "second-blog",
         /**
          * 你的网站上博客的 URL 路由。
-         * *请务必不要*添加末尾斜杠。
+         * !!请务必不要 添加末尾斜杠。
          */
         routeBasePath: "my-second-blog",
         /**

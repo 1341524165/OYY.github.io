@@ -34,7 +34,7 @@ var handsome;
 :::tip 发布**多个 blog**
 在 config.js 中声明，如下所示：
 
-```js title="/static/docusaurus.config.js"
+```js title="docusaurus.config.js"
 plugins: [
     [
       '@docusaurus/plugin-content-blog',
@@ -45,7 +45,7 @@ plugins: [
         id: 'second-blog',
         /**
          * 你的网站上博客的 URL 路由。
-         * *请务必不要*添加末尾斜杠。
+         * !!请务必不要 添加末尾斜杠。
          */
         routeBasePath: 'my-second-blog',
         /**
@@ -66,62 +66,62 @@ p.s. 避免 prettier 将代码格式化成错误语法的影响，还是多空�
 
 :::note
 
-一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `api`](#4告示类)。
+一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `link`](#4告示类)。
 
 :::
 
 :::tip
 
-一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `api`](#4告示类)。
+一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `link`](#4告示类)。
 
 :::
 
 :::info
 
-一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `api`](#4告示类)。
+一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `link`](#4告示类)。
 
 :::
 
 :::caution
 
-一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `api`](#4告示类)。
+一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `link`](#4告示类)。
 
 :::
 
 :::danger
 
-一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `api`](#4告示类)。
+一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `link`](#4告示类)。
 
 :::
 ```
 
 :::note
 
-一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `api`](#4告示类)。
+一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `link`](#4告示类)。
 
 :::
 
 :::tip
 
-一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `api`](#4告示类)。
+一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `link`](#4告示类)。
 
 :::
 
 :::info
 
-一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `api`](#4告示类)。
+一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `link`](#4告示类)。
 
 :::
 
 :::caution
 
-一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `api`](#4告示类)。
+一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `link`](#4告示类)。
 
 :::
 
 :::danger
 
-一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `api`](#4告示类)。
+一些包含 _Markdown_ `语法` 的 **内容**。 看看[这个 `link`](#4告示类)。
 
 :::
 
