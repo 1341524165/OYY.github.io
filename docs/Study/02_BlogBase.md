@@ -134,3 +134,29 @@ import ColorGenerator from '@site/src/components/ColorGenerator';
 它会自动生成代码，你可以将其复制到你的 src\css\custom.css 文件，覆盖掉原有的样式。
 
 <ColorGenerator/>
+
+### 6. 数学公式
+
+你会发现现在的markdown无法直接支持（Latex格式的）数学公式，你需要在项目中下载Math和Katex插件。
+
+```bash
+npm install --save remark-math@6 rehype-katex@7
+```
+
+这两个插件`只在ES Module`中可用，所以还是需要在`docusaurus.config.js`中声明：
+
+```js title="docusaurus.config.js"
+module.exports = {
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        docs: {
+          remarkPlugins: [require('remark-math')],
+          rehypePlugins: [require('rehype-katex')],
+        },
+      },
+    ],
+  ],
+};
+```
