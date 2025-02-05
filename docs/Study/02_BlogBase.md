@@ -143,20 +143,44 @@ import ColorGenerator from '@site/src/components/ColorGenerator';
 npm install --save remark-math@6 rehype-katex@7
 ```
 
-这两个插件`只在ES Module`中可用，所以还是需要在`docusaurus.config.js`中声明：
+这两个插件`只在ES Module`中可用，所以在原先`CommonJS`的docusaurus.config.js中：
+```js title="docusaurus.config.js"
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+```
+而如上这样的静态导入方式是不可行的，我们需要将静态的`module.exports`改为动态的`module.exports = async function createConfigAsync()`。所以别忘了，在文件的最后删除`module.exports = config;`：
 
 ```js title="docusaurus.config.js"
-module.exports = {
-  presets: [
-    [
-      '@docusaurus/preset-classic',
-      {
-        docs: {
-          remarkPlugins: [require('remark-math')],
-          rehypePlugins: [require('rehype-katex')],
+// module.exports = {
+module.exports = async function createConfigAsync() {
+  const remarkMath = (await import('remark-math')).default;
+  const rehypeKatex = (await import('rehype-katex')).default;
+
+  return {
+    presets: [
+      [
+        '@docusaurus/preset-classic',
+        {
+          docs: {
+            remarkPlugins: [require('remark-math')],
+            rehypePlugins: [require('rehype-katex')],
+          },
         },
+      ],
+    ],
+
+    // 将KaTex的CSS用“stylesheets”引用
+    stylesheets: [
+      {
+        href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+        type: 'text/css',
+        integrity:
+          'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+        crossorigin: 'anonymous',
       },
     ],
-  ],
+  };
 };
+
+// module.exports = config;
 ```
