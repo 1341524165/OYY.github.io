@@ -78,28 +78,28 @@ strong {
   box-shadow: 2px 2px 1px 1px var(--ifm-color-reverse) !important;
 }
 
-.markdown > h2 {
+.markdown>h2 {
   color: var(--ifm-color-primary-light);
   font-size: 2.1em;
   border-bottom: 1px solid var(--ifm-color-reverse);
   padding-left: 1rem;
 }
 
-.markdown > h3 {
+.markdown>h3 {
   border-left: 7px solid var(--ifm-color-reverse);
   font-size: 1.8em;
   padding-left: 1rem;
   margin-top: calc(var(--ifm-h1-vertical-rhythm-top) * var(--ifm-leading));
 }
 
-.markdown > h4 {
+.markdown>h4 {
   border-left: 7px solid var(--ifm-color-primary-light);
   font-size: 1.5em;
   padding-left: 3rem;
   margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
 }
 
-.markdown > h5 {
+.markdown>h5 {
   border-left: 4px solid var(--ifm-color-primary-light);
   border-bottom: 1px solid var(--ifm-color-primary-light);
   font-size: 1.2em;
@@ -217,11 +217,7 @@ code {
   transition: 0.1s;
 }
 
-.button1:active
-  span:nth-child(1)
-  span:nth-child(2)
-  span:nth-child(2)
-  span:nth-child(2) {
+.button1:active span:nth-child(1) span:nth-child(2) span:nth-child(2) span:nth-child(2) {
   transition: none;
   transition-delay: none;
 }
@@ -411,4 +407,13 @@ a:hover {
 
 .menu__link:hover {
   color: var(--ifm-color-reverse);
+}
+
+/* 复选框列表颜色 */
+input[type="checkbox"]:checked {
+  accent-color: var(--ifm-color-primary-dark);
+}
+
+input[type="checkbox"]:checked::after {
+  color: white;
 }
