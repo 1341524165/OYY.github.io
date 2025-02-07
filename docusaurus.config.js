@@ -16,7 +16,7 @@ module.exports = async function createConfigAsync() {
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon:
-      "https://tvax1.sinaimg.cn/large/b447be47ly1h4uq4udymbj20yq0yqe43.jpg",
+      "https://jcqn.oss-cn-beijing.aliyuncs.com/img_blog/site%20logo.jpg",
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
