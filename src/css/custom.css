@@ -411,6 +411,10 @@ a:hover {
 
 /* 复选框列表颜色 */
 input[type="checkbox"]:checked {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
   background-color: var(--ifm-color-primary-dark);
   color: white;
 }
