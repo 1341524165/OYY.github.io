@@ -408,38 +408,3 @@ a:hover {
 .menu__link:hover {
   color: var(--ifm-color-reverse);
 }
-
-ul.task-list li input[type="checkbox"] {
-  appearance: none;
-  /* 移除默认样式 */
-  -webkit-appearance: none;
-  /* 兼容 Safari */
-  -moz-appearance: none;
-  /* 兼容 Firefox */
-  background-color: #fff;
-  border: 2px solid #6200EA;
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  vertical-align: middle;
-  cursor: pointer;
-  border-radius: 4px;
-
-}
-
-/* 复选框被选中时的样式 */
-ul.task-list li input[type="checkbox"]:checked {
-  background-color: #6200EA;
-  border-color: #6200EA;
-  position: relative;
-}
-
-/* 添加选中状态下的勾勾 */
-ul.task-list li input[type="checkbox"]:checked:after {
-  content: '✓';
-  color: #fff;
-  font-size: 12px;
-  position: absolute;
-  top: 1px;
-  left: 3px;
-}
