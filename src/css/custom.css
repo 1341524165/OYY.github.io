@@ -411,9 +411,6 @@ a:hover {
 
 /* 复选框列表颜色 */
 input[type="checkbox"]:checked {
-  accent-color: var(--ifm-color-primary-dark);
-}
-
-input[type="checkbox"]:checked::after {
+  background-color: var(--ifm-color-primary-dark);
   color: white;
 }
